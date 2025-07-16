@@ -59,13 +59,13 @@ export default async function Page(props: {
 
   return (
     <DynamicTheme branding={branding}>
-      <div className="flex flex-col items-center space-y-4">
-        <h1>
+      <div className="flex flex-col items-center space-y-4 w-92 p-6">
+        <h1 className="text-primary text-[26px] font-semibold leading-normal">
           {sessionFactors?.factors?.user?.displayName ?? (
             <Translated i18nKey="verify.title" namespace="password" />
           )}
         </h1>
-        <p className="ztdl-p mb-6 block">
+        <p className="text-primary/75 ztdl-p mb-6 block">
           <Translated i18nKey="verify.description" namespace="password" />
         </p>
 

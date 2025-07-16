@@ -111,7 +111,11 @@ export function ChooseSecondFactorToSetup({
           type="button"
           data-testid="reset-button"
         >
-          <Translated i18nKey="set.skip" namespace="mfa" />
+          <Translated
+            i18nKey="set.skip"
+            namespace="mfa"
+            className="text-primary"
+          />
         </button>
       )}
     </>

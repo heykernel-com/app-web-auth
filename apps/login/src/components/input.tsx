@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { clsx } from "clsx";
 import {
@@ -58,9 +59,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     ref,
   ) => {
     return (
-      <label className="relative flex flex-col text-12px text-input-light-label dark:text-input-dark-label">
+      <label className="relative flex flex-col text-primary">
         <span
-          className={`leading-3 mb-1 ${
+          className={`text-sm leading-normal font-medium mb-2 ${
             error ? "text-warn-light-500 dark:text-warn-dark-500" : ""
           }`}
         >
@@ -69,7 +70,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         <input
           suppressHydrationWarning
           ref={ref}
-          className={styles(!!error, !!disabled)}
+          className={cn(
+            styles(!!error, !!disabled),
+            "text-primary border-input rounded-lg",
+          )}
           defaultValue={defaultValue}
           required={required}
           disabled={disabled}

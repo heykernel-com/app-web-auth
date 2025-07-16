@@ -91,7 +91,6 @@ export async function createSessionAndUpdateCookie(command: {
           sessionCookie.organization =
             response.session.factors.user.organizationId;
         }
-
         const securitySettings = await getSecuritySettings({ serviceUrl });
         const sameSite = securitySettings?.embeddedIframe?.enabled
           ? "none"

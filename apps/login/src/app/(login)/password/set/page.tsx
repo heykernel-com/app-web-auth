@@ -1,6 +1,6 @@
 import { Alert, AlertType } from "@/components/alert";
+import { SetPasswordForm } from "@/components/common/forms/set-passowrd-form";
 import { DynamicTheme } from "@/components/dynamic-theme";
-import { SetPasswordForm } from "@/components/set-password-form";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
@@ -72,12 +72,12 @@ export default async function Page(props: {
   return (
     <DynamicTheme branding={branding}>
       <div className="flex flex-col items-center space-y-4">
-        <h1>
+        <h1 className="text-primary text-2xl font-semibold leading-normal">
           {session?.factors?.user?.displayName ?? (
             <Translated i18nKey="set.title" namespace="password" />
           )}
         </h1>
-        <p className="ztdl-p mb-6 block">
+        <p className="text-primary/75 ztdl-p mb-6 block">
           <Translated i18nKey="set.description" namespace="password" />
         </p>
 
@@ -108,7 +108,11 @@ export default async function Page(props: {
 
         {!initial && (
           <Alert type={AlertType.INFO}>
-            <Translated i18nKey="set.codeSent" namespace="password" />
+            <Translated
+              i18nKey="set.codeSent"
+              namespace="password"
+              className="text-primary/75"
+            />
           </Alert>
         )}
 

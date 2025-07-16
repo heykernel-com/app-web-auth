@@ -115,12 +115,12 @@ export default async function Page(props: {
 
   return (
     <DynamicTheme branding={branding}>
-      <div className="flex flex-col items-center space-y-4">
-        <h1>
+      <div className="flex flex-col items-center space-y-4 w-92 p-6">
+        <h1 className="text-primary text-2xl font-semibold leading-normal">
           <Translated i18nKey="set.title" namespace="mfa" />
         </h1>
 
-        <p className="ztdl-p">
+        <p className="text-primary/75 ztdl-p">
           <Translated i18nKey="set.description" namespace="mfa" />
         </p>
 

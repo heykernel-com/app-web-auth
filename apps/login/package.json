@@ -25,10 +25,15 @@
   "dependencies": {
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "2.1.3",
+    "@radix-ui/react-primitive": "^2.1.3",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/forms": "0.5.7",
+    "@tailwindcss/postcss": "^4.1.11",
     "@vercel/analytics": "^1.2.2",
     "@zitadel/client": "workspace:*",
     "@zitadel/proto": "workspace:*",
+    "class-variance-authority": "^0.7.1",
     "clsx": "1.2.1",
     "copy-to-clipboard": "^3.3.3",
     "deepmerge": "^4.3.1",
@@ -42,7 +47,10 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "7.39.5",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
     "tinycolor2": "1.4.2",
+    "tw-animate-css": "^1.3.5",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

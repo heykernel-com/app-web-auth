@@ -9,10 +9,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert, AlertType } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
+import { Button } from "./ui/button";
 
 type Inputs = {
   password: string;
@@ -124,7 +124,7 @@ export function PasswordForm({
         />
         {!loginSettings?.hidePasswordReset && (
           <button
-            className="transition-all text-sm hover:text-primary-light-500 dark:hover:text-primary-dark-500"
+            className="transition-all text-sm text-primary/50 hover:text-primary/40"
             onClick={() => resetPasswordAndContinue()}
             type="button"
             disabled={loading}
@@ -162,7 +162,6 @@ export function PasswordForm({
         <Button
           type="submit"
           className="self-end"
-          variant={ButtonVariants.Primary}
           disabled={loading || !formState.isValid}
           onClick={handleSubmit(submitPassword)}
           data-testid="submit-button"

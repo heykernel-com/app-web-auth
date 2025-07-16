@@ -7,10 +7,10 @@ import { ReactNode, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
+import { Button } from "./ui/button";
 
 type Inputs = {
   loginName: string;
@@ -143,7 +143,6 @@ export function UsernameForm({
           data-testid="submit-button"
           type="submit"
           className="self-end"
-          variant={ButtonVariants.Primary}
           disabled={loading || !formState.isValid}
           onClick={handleSubmit((e) => submitLoginName(e, organization))}
         >

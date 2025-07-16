@@ -120,7 +120,11 @@ export default async function Page(props: {
           ></ChooseSecondFactor>
         ) : (
           <Alert>
-            <Translated i18nKey="verify.noResults" namespace="mfa" />
+            <Translated
+              i18nKey="verify.noResults"
+              namespace="mfa"
+              className="text-primary/75"
+            />
           </Alert>
         )}
 
