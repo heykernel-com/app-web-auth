@@ -20,7 +20,7 @@
     }
   },
   "loginname": {
-    "title": "Welcome back!",
+    "title": "Welcome",
     "description": "Enter your login data.",
     "register": "Register new user",
     "submit": "Continue"

@@ -1,4 +1,5 @@
 import "@/styles/globals.scss";
+import "@/styles/shadcn.css";
 
 import { LanguageProvider } from "@/components/language-provider";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -23,6 +24,9 @@ export default async function RootLayout({
     <html className={`${lato.className}`} suppressHydrationWarning>
       <head />
       <body>
+        <h1 className="fixed top-4 left-8 text-primary text-[26px] font-bold">
+          Kernel
+        </h1>
         <ThemeProvider>
           <Suspense
             fallback={

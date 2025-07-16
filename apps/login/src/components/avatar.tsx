@@ -76,6 +76,7 @@ export function Avatar({
               : "w-12 h-12"
       }`}
       style={resolvedTheme === "light" ? avatarStyleLight : avatarStyleDark}
+      suppressHydrationWarning
     >
       {imageUrl ? (
         <Image
