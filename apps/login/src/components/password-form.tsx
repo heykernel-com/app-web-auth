@@ -1,6 +1,7 @@
 "use client";
 
 import { resetPassword, sendPassword } from "@/lib/server/password";
+import { Button } from "@kernel/ui/components/button";
 import { create } from "@zitadel/client";
 import { ChecksSchema } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
 import { LoginSettings } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
@@ -12,7 +13,6 @@ import { BackButton } from "./back-button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
-import { Button } from "./ui/button";
 
 type Inputs = {
   password: string;

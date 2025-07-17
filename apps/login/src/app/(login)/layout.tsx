@@ -1,5 +1,5 @@
 import "@/styles/globals.scss";
-import "@kernel/ui/src/shadcn.css";
+import "@kernel/ui/styles/shadcn.css";
 import "tw-animate-css";
 
 import { LanguageProvider } from "@/components/language-provider";
