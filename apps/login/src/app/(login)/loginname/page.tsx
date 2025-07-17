@@ -17,7 +17,6 @@ export default async function Page(props: {
 }) {
   const searchParams = await props.searchParams;
 
-  console.log("w: searchParams", searchParams);
   const loginName = searchParams?.loginName;
   const requestId = searchParams?.requestId;
   const organization = searchParams?.organization;
@@ -32,7 +31,7 @@ export default async function Page(props: {
     const org = await getDefaultOrg({
       serviceUrl,
     }).catch((err) => {
-      console.log("w: error", err);
+      console.debug("error", err);
       return undefined;
     });
     if (org) {
@@ -46,7 +45,7 @@ export default async function Page(props: {
     serviceUrl,
     organization: organization ?? defaultOrganization,
   }).catch((err) => {
-    console.log("w: error", err);
+    console.debug("error", err);
     return undefined;
   });
 
@@ -54,7 +53,7 @@ export default async function Page(props: {
     serviceUrl,
     organization,
   }).catch((err) => {
-    console.log("w: error", err);
+    console.debug("error", err);
     return undefined;
   });
 
@@ -66,7 +65,7 @@ export default async function Page(props: {
       return resp.identityProviders;
     })
     .catch((err) => {
-      console.log("w: error", err);
+      console.debug("error", err);
       return undefined;
     });
 
@@ -74,7 +73,7 @@ export default async function Page(props: {
     serviceUrl,
     organization: organization ?? defaultOrganization,
   }).catch((err) => {
-    console.log("w: error", err);
+    console.debug("error", err);
     return undefined;
   });
 
