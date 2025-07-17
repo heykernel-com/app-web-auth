@@ -38,7 +38,10 @@ types.forEach((type) => {
 export default {
   presets: [sharedConfig],
   darkMode: "class",
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "../../../packages/ui/components/**/*.{js,ts,jsx,tsx}",
+  ],
   future: {
     hoverOnlyWhenSupported: true,
   },

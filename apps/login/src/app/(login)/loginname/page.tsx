@@ -1,7 +1,6 @@
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { SignInWithIdp } from "@/components/sign-in-with-idp";
 import { Translated } from "@/components/translated";
-import { Separator } from "@/components/ui/separator";
 import { UsernameForm } from "@/components/username-form";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
 import {
@@ -10,6 +9,7 @@ import {
   getDefaultOrg,
   getLoginSettings,
 } from "@/lib/zitadel";
+import { Separator } from "@kernel/ui/components/separator";
 import { headers } from "next/headers";
 
 export default async function Page(props: {

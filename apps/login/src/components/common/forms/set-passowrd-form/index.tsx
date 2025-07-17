@@ -11,6 +11,7 @@ import {
   resetPassword,
   sendPassword,
 } from "@/lib/server/password";
+import { Button } from "@kernel/ui/components/button";
 import { create } from "@zitadel/client";
 import { ChecksSchema } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
 import { PasswordComplexitySettings } from "@zitadel/proto/zitadel/settings/v2/password_settings_pb";
@@ -22,7 +23,6 @@ import { BackButton } from "../../../back-button";
 import { TextInput } from "../../../input";
 import { Spinner } from "../../../spinner";
 import { Translated } from "../../../translated";
-import { Button } from "../../../ui/button";
 import { PasswordCheckList } from "./password-check-list";
 
 type Inputs =

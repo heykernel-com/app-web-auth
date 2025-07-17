@@ -1,6 +1,7 @@
 "use client";
 
 import { sendLoginname } from "@/lib/server/loginname";
+import { Button } from "@kernel/ui/components/button";
 import { LoginSettings } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
@@ -10,7 +11,6 @@ import { BackButton } from "./back-button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
-import { Button } from "./ui/button";
 
 type Inputs = {
   loginName: string;
