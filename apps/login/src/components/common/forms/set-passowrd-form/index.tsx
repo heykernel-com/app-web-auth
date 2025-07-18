@@ -11,7 +11,7 @@ import {
   resetPassword,
   sendPassword,
 } from "@/lib/server/password";
-import { Button } from "@kernel/ui/components/button";
+import { Button } from "@kernel/ui";
 import { create } from "@zitadel/client";
 import { ChecksSchema } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
 import { PasswordComplexitySettings } from "@zitadel/proto/zitadel/settings/v2/password_settings_pb";

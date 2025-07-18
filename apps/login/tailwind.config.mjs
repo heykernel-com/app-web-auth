@@ -40,7 +40,7 @@ export default {
   darkMode: "class",
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "../../../packages/ui/components/**/*.{js,ts,jsx,tsx}",
+    "node_modules/@kernel/ui/dist/components/**/*.{js,ts,jsx,tsx}",
   ],
   future: {
     hoverOnlyWhenSupported: true,

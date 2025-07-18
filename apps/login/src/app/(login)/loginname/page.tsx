@@ -9,7 +9,7 @@ import {
   getDefaultOrg,
   getLoginSettings,
 } from "@/lib/zitadel";
-import { Separator } from "@kernel/ui/components/separator";
+import { Separator } from "@kernel/ui";
 import { headers } from "next/headers";
 
 export default async function Page(props: {
