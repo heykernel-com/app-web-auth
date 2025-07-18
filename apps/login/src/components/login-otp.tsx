@@ -2,6 +2,7 @@
 
 import { getNextUrl } from "@/lib/client";
 import { updateSession } from "@/lib/server/session";
+import { Button } from "@kernel/ui";
 import { create } from "@zitadel/client";
 import { RequestChallengesSchema } from "@zitadel/proto/zitadel/session/v2/challenge_pb";
 import { ChecksSchema } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
@@ -11,7 +12,6 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert, AlertType } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
@@ -268,7 +268,6 @@ export function LoginOTP({
         <Button
           type="submit"
           className="self-end"
-          variant={ButtonVariants.Primary}
           disabled={loading || !formState.isValid}
           onClick={handleSubmit((e) => {
             setCodeAndContinue(e, organization);

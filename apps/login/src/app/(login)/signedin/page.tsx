@@ -1,5 +1,4 @@
 import { Alert, AlertType } from "@/components/alert";
-import { Button, ButtonVariants } from "@/components/button";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
@@ -15,6 +14,7 @@ import {
   getLoginSettings,
   getSession,
 } from "@/lib/zitadel";
+import { Button } from "@kernel/ui";
 import { headers } from "next/headers";
 import Link from "next/link";
 
@@ -125,11 +125,7 @@ export default async function Page(props: { searchParams: Promise<any> }) {
             <span className="flex-grow"></span>
 
             <Link href={loginSettings?.defaultRedirectUri}>
-              <Button
-                type="submit"
-                className="self-end"
-                variant={ButtonVariants.Primary}
-              >
+              <Button type="submit" className="self-end">
                 <Translated i18nKey="continue" namespace="signedin" />
               </Button>
             </Link>

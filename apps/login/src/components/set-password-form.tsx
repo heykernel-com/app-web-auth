@@ -11,6 +11,7 @@ import {
   resetPassword,
   sendPassword,
 } from "@/lib/server/password";
+import { Button } from "@kernel/ui";
 import { create } from "@zitadel/client";
 import { ChecksSchema } from "@zitadel/proto/zitadel/session/v2/session_service_pb";
 import { PasswordComplexitySettings } from "@zitadel/proto/zitadel/settings/v2/password_settings_pb";
@@ -19,7 +20,6 @@ import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { Alert, AlertType } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { PasswordComplexity } from "./password-complexity";
 import { Spinner } from "./spinner";
@@ -267,7 +267,6 @@ export function SetPasswordForm({
         <BackButton data-testid="back-button" />
         <Button
           type="submit"
-          variant={ButtonVariants.Primary}
           disabled={
             loading ||
             !policyIsValid ||

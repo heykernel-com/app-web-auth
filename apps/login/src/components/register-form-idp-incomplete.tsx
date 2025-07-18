@@ -1,12 +1,12 @@
 "use client";
 
 import { registerUserAndLinkToIDP } from "@/lib/server/register";
+import { Button } from "@kernel/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { Alert } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
@@ -142,7 +142,6 @@ export function RegisterFormIDPIncomplete({
         <BackButton data-testid="back-button" />
         <Button
           type="submit"
-          variant={ButtonVariants.Primary}
           disabled={loading || !formState.isValid}
           onClick={handleSubmit(submitAndRegister)}
           data-testid="submit-button"

@@ -1,6 +1,7 @@
 "use client";
 
 import { registerUser } from "@/lib/server/register";
+import { Button } from "@kernel/ui";
 import { LegalAndSupportSettings } from "@zitadel/proto/zitadel/settings/v2/legal_settings_pb";
 import {
   LoginSettings,
@@ -16,7 +17,6 @@ import {
   methods,
 } from "./authentication-method-radio";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { PrivacyPolicyCheckboxes } from "./privacy-policy-checkboxes";
 import { Spinner } from "./spinner";
@@ -205,7 +205,6 @@ export function RegisterForm({
         <BackButton data-testid="back-button" />
         <Button
           type="submit"
-          variant={ButtonVariants.Primary}
           disabled={loading || !formState.isValid || !tosAndPolicyAccepted}
           onClick={handleSubmit((values) => {
             const usePasswordToContinue: boolean =

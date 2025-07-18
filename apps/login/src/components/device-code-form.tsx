@@ -2,11 +2,11 @@
 
 import { Alert } from "@/components/alert";
 import { getDeviceAuthorizationRequest } from "@/lib/server/oidc";
+import { Button } from "@kernel/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
@@ -80,7 +80,6 @@ export function DeviceCodeForm({ userCode }: { userCode?: string }) {
           <Button
             type="submit"
             className="self-end"
-            variant={ButtonVariants.Primary}
             disabled={loading || !formState.isValid}
             onClick={handleSubmit(submitCodeAndContinue)}
             data-testid="submit-button"

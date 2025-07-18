@@ -1,9 +1,9 @@
 "use client";
 
 import { Boundary } from "@/components/boundary";
-import { Button } from "@/components/button";
 import { ThemeWrapper } from "@/components/theme-wrapper";
 import { Translated } from "@/components/translated";
+import { Button } from "@kernel/ui";
 
 export default function GlobalError({
   error,

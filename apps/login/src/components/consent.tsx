@@ -1,12 +1,12 @@
 "use client";
 
 import { completeDeviceAuthorization } from "@/lib/server/device";
+import { Button } from "@kernel/ui";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Alert } from "./alert";
-import { Button, ButtonVariants } from "./button";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
 
@@ -92,7 +92,7 @@ export function ConsentScreen({
           onClick={() => {
             denyDeviceAuth();
           }}
-          variant={ButtonVariants.Secondary}
+          variant={"outline"}
           data-testid="deny-button"
         >
           {loading && <Spinner className="h-5 w-5 mr-2" />}
@@ -105,7 +105,6 @@ export function ConsentScreen({
             data-testid="submit-button"
             type="submit"
             className="self-end"
-            variant={ButtonVariants.Primary}
           >
             <Translated i18nKey="device.request.submit" namespace="device" />
           </Button>
