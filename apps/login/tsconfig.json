@@ -5,8 +5,7 @@
     "target": "es2022",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@kernel/ui/*": ["../../../packages/ui/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {

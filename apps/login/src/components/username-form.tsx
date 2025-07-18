@@ -1,7 +1,7 @@
 "use client";
 
 import { sendLoginname } from "@/lib/server/loginname";
-import { Button } from "@kernel/ui/components/button";
+import { Button } from "@kernel/ui";
 import { LoginSettings } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
