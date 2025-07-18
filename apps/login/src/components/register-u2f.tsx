@@ -3,13 +3,13 @@
 import { coerceToArrayBuffer, coerceToBase64Url } from "@/helpers/base64";
 import { getNextUrl } from "@/lib/client";
 import { addU2F, verifyU2F } from "@/lib/server/u2f";
+import { Button } from "@kernel/ui";
 import { LoginSettings } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
 import { RegisterU2FResponse } from "@zitadel/proto/zitadel/user/v2/user_service_pb";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Alert } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
 
@@ -211,7 +211,6 @@ export function RegisterU2f({
         <Button
           type="submit"
           className="self-end"
-          variant={ButtonVariants.Primary}
           disabled={loading}
           onClick={submitRegisterAndContinue}
           data-testid="submit-button"

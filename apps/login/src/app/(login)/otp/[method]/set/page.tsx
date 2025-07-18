@@ -1,6 +1,5 @@
 import { Alert } from "@/components/alert";
 import { BackButton } from "@/components/back-button";
-import { Button, ButtonVariants } from "@/components/button";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { TotpRegister } from "@/components/totp-register";
 import { Translated } from "@/components/translated";
@@ -14,6 +13,7 @@ import {
   getLoginSettings,
   registerTOTP,
 } from "@/lib/zitadel";
+import { Button } from "@kernel/ui";
 import { RegisterTOTPResponse } from "@zitadel/proto/zitadel/user/v2/user_service_pb";
 import { headers } from "next/headers";
 import Link from "next/link";
@@ -187,11 +187,7 @@ export default async function Page(props: {
               <span className="flex-grow"></span>
 
               <Link href={urlToContinue}>
-                <Button
-                  type="submit"
-                  className="self-end"
-                  variant={ButtonVariants.Primary}
-                >
+                <Button type="submit" className="self-end">
                   <Translated i18nKey="set.submit" namespace="otp" />
                 </Button>
               </Link>

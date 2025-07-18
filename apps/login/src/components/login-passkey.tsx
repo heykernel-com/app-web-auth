@@ -3,6 +3,7 @@
 import { coerceToArrayBuffer, coerceToBase64Url } from "@/helpers/base64";
 import { sendPasskey } from "@/lib/server/passkeys";
 import { updateSession } from "@/lib/server/session";
+import { Button } from "@kernel/ui";
 import { create, JsonObject } from "@zitadel/client";
 import {
   RequestChallengesSchema,
@@ -13,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Alert } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
 
@@ -206,7 +206,7 @@ export function LoginPasskey({
         {altPassword ? (
           <Button
             type="button"
-            variant={ButtonVariants.Secondary}
+            variant={"outline"}
             onClick={() => {
               const params = new URLSearchParams();
 
@@ -242,7 +242,6 @@ export function LoginPasskey({
         <Button
           type="submit"
           className="self-end"
-          variant={ButtonVariants.Primary}
           disabled={loading}
           onClick={async () => {
             const response = await updateSessionForChallenge().finally(() => {

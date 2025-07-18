@@ -7,13 +7,13 @@ import {
   upperCaseValidator,
 } from "@/helpers/validators";
 import { registerUser } from "@/lib/server/register";
+import { Button } from "@kernel/ui";
 import { PasswordComplexitySettings } from "@zitadel/proto/zitadel/settings/v2/password_settings_pb";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { Alert } from "./alert";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { PasswordComplexity } from "./password-complexity";
 import { Spinner } from "./spinner";
@@ -151,7 +151,6 @@ export function SetRegisterPasswordForm({
         <BackButton data-testid="back-button" />
         <Button
           type="submit"
-          variant={ButtonVariants.Primary}
           disabled={
             loading ||
             !policyIsValid ||

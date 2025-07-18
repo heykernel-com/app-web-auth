@@ -2,11 +2,11 @@
 
 import { Alert, AlertType } from "@/components/alert";
 import { resendVerification, sendVerification } from "@/lib/server/verify";
+import { Button } from "@kernel/ui";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BackButton } from "./back-button";
-import { Button, ButtonVariants } from "./button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
@@ -153,7 +153,6 @@ export function VerifyForm({
           <Button
             type="submit"
             className="self-end"
-            variant={ButtonVariants.Primary}
             disabled={loading || !formState.isValid}
             onClick={handleSubmit(fcn)}
             data-testid="submit-button"

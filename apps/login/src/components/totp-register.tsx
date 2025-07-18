@@ -2,6 +2,7 @@
 
 import { getNextUrl } from "@/lib/client";
 import { verifyTOTP } from "@/lib/server/verify";
+import { Button } from "@kernel/ui";
 import { LoginSettings } from "@zitadel/proto/zitadel/settings/v2/login_settings_pb";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,7 +10,6 @@ import { QRCodeSVG } from "qrcode.react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert } from "./alert";
-import { Button, ButtonVariants } from "./button";
 import { CopyToClipboard } from "./copy-to-clipboard";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
@@ -140,7 +140,6 @@ export function TotpRegister({
               <Button
                 type="submit"
                 className="self-end"
-                variant={ButtonVariants.Primary}
                 disabled={loading || !formState.isValid}
                 onClick={handleSubmit(continueWithCode)}
                 data-testid="submit-button"

@@ -1,8 +1,8 @@
 "use client";
 
 import { Boundary } from "@/components/boundary";
-import { Button } from "@/components/button";
 import { Translated } from "@/components/translated";
+import { Button } from "@kernel/ui";
 import { useEffect } from "react";
 
 export default function Error({ error, reset }: any) {
