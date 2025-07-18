@@ -91,7 +91,7 @@ export default async function Page(props: {
           loginSettings={contextLoginSettings}
           suffix={suffix}
           submit={submit}
-          allowRegister={!!loginSettings?.allowRegister}
+          allowRegister={false}
         ></UsernameForm>
 
         {identityProviders && loginSettings?.allowExternalIdp && (
