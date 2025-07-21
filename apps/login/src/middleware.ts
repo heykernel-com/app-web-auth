@@ -67,6 +67,9 @@ export async function middleware(request: NextRequest) {
     !process.env.ZITADEL_API_URL ||
     !process.env.ZITADEL_SERVICE_USER_TOKEN
   ) {
+    // set pathname to headers
+    requestHeaders.set("x-pathname", request.nextUrl.pathname);
+
     // For all other routes, just add the header and continue
     return NextResponse.next({
       request: { headers: requestHeaders },
