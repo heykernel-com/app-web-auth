@@ -71,7 +71,7 @@ export function SessionClearItem({
           <span className="text-xs opacity-80 text-ellipsis">
             {verifiedAt && (
               <Translated
-                i18nKey="verfiedAt"
+                i18nKey="verifiedAt"
                 namespace="logout"
                 data={{ time: moment(timestampDate(verifiedAt)).fromNow() }}
               />

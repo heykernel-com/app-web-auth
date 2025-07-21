@@ -1,4 +1,7 @@
-import { getSessionCookieById } from "@/lib/cookies";
+import {
+  getMostRecentCookieWithLoginname,
+  getSessionCookieById,
+} from "@/lib/cookies";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
 import { isSessionValid } from "@/lib/session";
 import { getSession } from "@/lib/zitadel";
@@ -9,7 +12,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const { sessionId, loginName, organization } = body;
 
-  if (!sessionId || !loginName || !organization) {
+  if (!organization || (!sessionId && !loginName)) {
     return NextResponse.json(
       { valid: false, error: "Invalid request" },
       { status: 400 },
@@ -18,7 +21,16 @@ export async function POST(request: NextRequest) {
 
   let sessionCookie;
   try {
-    sessionCookie = await getSessionCookieById({ sessionId });
+    sessionCookie = sessionId
+      ? await getSessionCookieById({ sessionId, organization })
+      : await getMostRecentCookieWithLoginname({
+          loginName: loginName,
+          organization: organization,
+        });
+
+    if (!sessionCookie) {
+      throw new Error("");
+    }
   } catch {
     return NextResponse.json(
       { valid: false, error: "Session not found" },
@@ -54,8 +66,5 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({
-    valid: true,
-    user: sessionResponse.session.factors?.user,
-  });
+  return NextResponse.json({ valid: true }, { status: 200 });
 }

@@ -1,7 +1,6 @@
-import { Alert, AlertType } from "@/components/alert";
+import { Alert } from "@/components/alert";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { Translated } from "@/components/translated";
-import { UserAvatar } from "@/components/user-avatar";
 import {
   getMostRecentCookieWithLoginname,
   getSessionCookieById,
@@ -14,9 +13,8 @@ import {
   getLoginSettings,
   getSession,
 } from "@/lib/zitadel";
-import { Button } from "@kernel/ui";
 import { headers } from "next/headers";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function loadSessionById(
   serviceUrl: string,
@@ -92,46 +90,7 @@ export default async function Page(props: { searchParams: Promise<any> }) {
     });
   }
 
-  return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col items-center space-y-4">
-        <h1>
-          <Translated
-            i18nKey="title"
-            namespace="signedin"
-            data={{ user: sessionFactors?.factors?.user?.displayName }}
-          />
-        </h1>
-        <p className="ztdl-p mb-6 block">
-          <Translated i18nKey="description" namespace="signedin" />
-        </p>
-
-        <UserAvatar
-          loginName={loginName ?? sessionFactors?.factors?.user?.loginName}
-          displayName={sessionFactors?.factors?.user?.displayName}
-          showDropdown={!(requestId && requestId.startsWith("device_"))}
-          searchParams={searchParams}
-        />
-
-        {requestId && requestId.startsWith("device_") && (
-          <Alert type={AlertType.INFO}>
-            You can now close this window and return to the device where you
-            started the authorization process to continue.
-          </Alert>
-        )}
-
-        {loginSettings?.defaultRedirectUri && (
-          <div className="mt-8 flex w-full flex-row items-center">
-            <span className="flex-grow"></span>
-
-            <Link href={loginSettings?.defaultRedirectUri}>
-              <Button type="submit" className="self-end">
-                <Translated i18nKey="continue" namespace="signedin" />
-              </Button>
-            </Link>
-          </div>
-        )}
-      </div>
-    </DynamicTheme>
+  return redirect(
+    `${process.env.BASE_PATH}/home?loginName=${loginName}&organization=${organization}`,
   );
 }
