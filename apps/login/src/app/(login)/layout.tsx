@@ -1,6 +1,6 @@
+import "@/styles/global.css";
 import "@/styles/globals.scss";
 import "@kernel/ui/dist/styles/shadcn.css";
-import "tw-animate-css";
 
 import AuthProvider from "@/components/auth-provider";
 import { LanguageProvider } from "@/components/language-provider";

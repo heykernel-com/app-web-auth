@@ -1,10 +1,6 @@
 // include styles from the ui package
 @use "./vars.scss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   h1,
   .ztdl-h1 {
