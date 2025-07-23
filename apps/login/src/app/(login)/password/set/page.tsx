@@ -1,4 +1,4 @@
-import { Alert, AlertType } from "@/components/alert";
+import { Alert } from "@/components/alert";
 import { SetPasswordForm } from "@/components/common/forms/set-passowrd-form";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { Translated } from "@/components/translated";
@@ -73,9 +73,7 @@ export default async function Page(props: {
     <DynamicTheme branding={branding}>
       <div className="flex flex-col items-center space-y-4">
         <h1 className="text-primary text-2xl font-semibold leading-normal">
-          {session?.factors?.user?.displayName ?? (
-            <Translated i18nKey="set.title" namespace="password" />
-          )}
+          <Translated i18nKey="set.title" namespace="password" />
         </h1>
         <p className="text-primary/75 ztdl-p mb-6 block">
           <Translated i18nKey="set.description" namespace="password" />
@@ -105,16 +103,6 @@ export default async function Page(props: {
             searchParams={searchParams}
           ></UserAvatar>
         ) : null}
-
-        {!initial && (
-          <Alert type={AlertType.INFO}>
-            <Translated
-              i18nKey="set.codeSent"
-              namespace="password"
-              className="text-primary/75"
-            />
-          </Alert>
-        )}
 
         {passwordComplexity &&
         (loginName ?? user?.preferredLoginName) &&

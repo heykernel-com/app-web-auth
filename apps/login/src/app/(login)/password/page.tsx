@@ -2,7 +2,6 @@ import { Alert } from "@/components/alert";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { PasswordForm } from "@/components/password-form";
 import { Translated } from "@/components/translated";
-import { UserAvatar } from "@/components/user-avatar";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
 import { loadMostRecentSession } from "@/lib/session";
 import {
@@ -61,7 +60,9 @@ export default async function Page(props: {
     <DynamicTheme branding={branding}>
       <div className="flex flex-col items-center space-y-4 w-92 p-6">
         <h1 className="text-primary text-[26px] font-semibold leading-normal">
-          {sessionFactors?.factors?.user?.displayName ?? (
+          {sessionFactors?.factors?.user?.displayName ? (
+            `Welcome ${sessionFactors?.factors?.user?.displayName}`
+          ) : (
             <Translated i18nKey="verify.title" namespace="password" />
           )}
         </h1>
@@ -78,15 +79,6 @@ export default async function Page(props: {
               </Alert>
             </div>
           )}
-
-        {sessionFactors && (
-          <UserAvatar
-            loginName={loginName ?? sessionFactors.factors?.user?.loginName}
-            displayName={sessionFactors.factors?.user?.displayName}
-            showDropdown
-            searchParams={searchParams}
-          ></UserAvatar>
-        )}
 
         {loginName && (
           <PasswordForm

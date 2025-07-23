@@ -25,6 +25,7 @@
   "dependencies": {
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "2.1.3",
+    "@kernel/ui": "git+https://app-web-lib-ui-deploy-token:gldt-Bkx3UL_td6viuZx7Xzx2@gitlab.com/heykernel.com/app-web-lib-ui.git",
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/postcss": "^4.1.11",
     "@vercel/analytics": "^1.2.2",
@@ -34,6 +35,7 @@
     "clsx": "1.2.1",
     "copy-to-clipboard": "^3.3.3",
     "deepmerge": "^4.3.1",
+    "input-otp": "^1.4.2",
     "lucide-react": "0.469.0",
     "moment": "^2.29.4",
     "next": "15.4.0-canary.86",
@@ -48,8 +50,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tinycolor2": "1.4.2",
     "tw-animate-css": "^1.3.5",
-    "uuid": "^11.1.0",
-    "@kernel/ui": "git+https://app-web-lib-ui-deploy-token:gldt-Bkx3UL_td6viuZx7Xzx2@gitlab.com/heykernel.com/app-web-lib-ui.git"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.53.0",
