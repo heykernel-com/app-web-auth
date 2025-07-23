@@ -28,13 +28,13 @@
   "password": {
     "verify": {
       "title": "Password",
-      "description": "Enter your password.",
-      "resetPassword": "Reset Password",
+      "description": "Please enter your password.",
+      "resetPassword": "Forgot Password",
       "submit": "Continue"
     },
     "set": {
-      "title": "Set Password",
-      "description": "Set the password for your account",
+      "title": "New Password",
+      "description": "Please enter the code that has been sent to your email address for verification and enter a new password for your account.",
       "codeSent": "A code has been sent to your email address.",
       "noCodeReceived": "Didn't receive a code?",
       "resend": "Resend code",
@@ -101,10 +101,12 @@
   },
   "otp": {
     "verify": {
-      "title": "Verify 2-Factor",
+      "totpTitle": "Verify with Authenticator",
+      "smsTitle": "Verify with SMS",
+      "emailTitle": "Verify with Email",
       "totpDescription": "Enter the code from your authenticator app.",
       "smsDescription": "Enter the code you received via SMS.",
-      "emailDescription": "Enter the code you received via email.",
+      "emailDescription": "Enter the verification code we sent to",
       "noCodeReceived": "Didn't receive a code?",
       "resendCode": "Resend code",
       "submit": "Continue"

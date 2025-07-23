@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert } from "./alert";
-import { BackButton } from "./back-button";
 import { TextInput } from "./input";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
@@ -85,7 +84,7 @@ export function UsernameForm({
     }
   }, []);
 
-  let inputLabel = "Loginname";
+  let inputLabel = "Email";
   if (
     loginSettings?.disableLoginWithEmail &&
     loginSettings?.disableLoginWithPhone
@@ -137,12 +136,10 @@ export function UsernameForm({
         </div>
       )}
       <div className="mt-4 flex w-full flex-row items-center">
-        <BackButton data-testid="back-button" />
-        <span className="flex-grow"></span>
         <Button
           data-testid="submit-button"
           type="submit"
-          className="self-end"
+          className="w-full"
           disabled={loading || !formState.isValid}
           onClick={handleSubmit((e) => submitLoginName(e, organization))}
         >

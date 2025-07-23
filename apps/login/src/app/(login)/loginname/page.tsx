@@ -1,5 +1,4 @@
 import { DynamicTheme } from "@/components/dynamic-theme";
-import { SignInWithIdp } from "@/components/sign-in-with-idp";
 import { Translated } from "@/components/translated";
 import { UsernameForm } from "@/components/username-form";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
@@ -94,21 +93,9 @@ export default async function Page(props: {
           allowRegister={false}
         ></UsernameForm>
 
-        {identityProviders && loginSettings?.allowExternalIdp && (
-          <div className="w-full pt-6 pb-4">
-            <SignInWithIdp
-              identityProviders={identityProviders}
-              requestId={requestId}
-              organization={organization}
-            ></SignInWithIdp>
-          </div>
-        )}
-
         {/* Term of use and privacy policy */}
         <div className="flex flex-col gap-6 w-full">
-          <div className="w-full mb-2">
-            <Separator />
-          </div>
+          <Separator />
           <p className="text-sm text-center leading-normal text-primary/75 px-4">
             By signing in you are agreeing to the <br />
             <span className="font-medium text-primary">Terms of Use</span> and

@@ -18,7 +18,7 @@ import { PasswordComplexitySettings } from "@zitadel/proto/zitadel/settings/v2/p
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { Alert, AlertType } from "../../../alert";
+import { Alert } from "../../../alert";
 import { BackButton } from "../../../back-button";
 import { TextInput } from "../../../input";
 import { Spinner } from "../../../spinner";
@@ -190,28 +190,7 @@ export function SetPasswordForm({
     <form className="w-full">
       <div className="pt-4 grid grid-cols-1 gap-4 mb-4">
         {codeRequired && (
-          <Alert type={AlertType.INFO}>
-            <div className="flex flex-row">
-              <span className="flex-1 mr-auto text-left">
-                <Translated i18nKey="set.noCodeReceived" namespace="password" />
-              </span>
-              <button
-                aria-label="Resend OTP Code"
-                disabled={loading}
-                type="button"
-                className="ml-4 text-primary-light-500 dark:text-primary-dark-500 hover:dark:text-primary-dark-400 hover:text-primary-light-400 cursor-pointer disabled:cursor-default disabled:text-gray-400 dark:disabled:text-gray-700"
-                onClick={() => {
-                  resendCode();
-                }}
-                data-testid="resend-button"
-              >
-                <Translated i18nKey="set.resend" namespace="password" />
-              </button>
-            </div>
-          </Alert>
-        )}
-        {codeRequired && (
-          <div>
+          <div className="relative">
             <TextInput
               type="text"
               required
@@ -223,6 +202,18 @@ export function SetPasswordForm({
               error={errors.code?.message as string}
               data-testid="code-text-input"
             />
+            <button
+              aria-label="Resend OTP Code"
+              disabled={loading}
+              type="button"
+              className="text-sm text-primary/50 hover:text-primary/40 cursor-pointer disabled:cursor-default disabled:text-gray-400 dark:disabled:text-gray-700 absolute top-0 right-0"
+              onClick={() => {
+                resendCode();
+              }}
+              data-testid="resend-button"
+            >
+              <Translated i18nKey="set.resend" namespace="password" />
+            </button>
           </div>
         )}
         <div>

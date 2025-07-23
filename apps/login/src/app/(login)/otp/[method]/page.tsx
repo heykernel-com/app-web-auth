@@ -2,7 +2,6 @@ import { Alert } from "@/components/alert";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { LoginOTP } from "@/components/login-otp";
 import { Translated } from "@/components/translated";
-import { UserAvatar } from "@/components/user-avatar";
 import { getSessionCookieById } from "@/lib/cookies";
 import { getServiceUrlFromHeaders } from "@/lib/service-url";
 import { loadMostRecentSession } from "@/lib/session";
@@ -80,8 +79,16 @@ export default async function Page(props: {
   return (
     <DynamicTheme branding={branding}>
       <div className="flex flex-col items-center space-y-4">
-        <h1>
-          <Translated i18nKey="verify.title" namespace="otp" />
+        <h1 className="text-primary text-[26px] font-semibold leading-normal">
+          {method === "time-based" && (
+            <Translated i18nKey="verify.totpTitle" namespace="otp" />
+          )}
+          {method === "sms" && (
+            <Translated i18nKey="verify.smsTitle" namespace="otp" />
+          )}
+          {method === "email" && (
+            <Translated i18nKey="verify.emailTitle" namespace="otp" />
+          )}
         </h1>
         {method === "time-based" && (
           <p className="ztdl-p">
@@ -95,7 +102,8 @@ export default async function Page(props: {
         )}
         {method === "email" && (
           <p className="ztdl-p">
-            <Translated i18nKey="verify.emailDescription" namespace="otp" />
+            <Translated i18nKey="verify.emailDescription" namespace="otp" />{" "}
+            {loginName}
           </p>
         )}
 
@@ -105,15 +113,6 @@ export default async function Page(props: {
               <Translated i18nKey="unknownContext" namespace="error" />
             </Alert>
           </div>
-        )}
-
-        {session && (
-          <UserAvatar
-            loginName={loginName ?? session.factors?.user?.loginName}
-            displayName={session.factors?.user?.displayName}
-            showDropdown
-            searchParams={searchParams}
-          ></UserAvatar>
         )}
 
         {method && session && (

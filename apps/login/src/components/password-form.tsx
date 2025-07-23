@@ -95,8 +95,6 @@ export function PasswordForm({
       return;
     }
 
-    setInfo("Password was reset. Please check your email.");
-
     const params = new URLSearchParams({
       loginName: loginName,
     });
@@ -114,7 +112,7 @@ export function PasswordForm({
 
   return (
     <form className="w-full">
-      <div className={`${error && "transform-gpu animate-shake"}`}>
+      <div className={`${error && "transform-gpu animate-shake"} relative`}>
         <TextInput
           type="password"
           autoComplete="password"
@@ -124,7 +122,7 @@ export function PasswordForm({
         />
         {!loginSettings?.hidePasswordReset && (
           <button
-            className="transition-all text-sm text-primary/50 hover:text-primary/40"
+            className="transition-all text-sm text-primary/50 hover:text-primary/40 absolute top-0 right-0 "
             onClick={() => resetPasswordAndContinue()}
             type="button"
             disabled={loading}
@@ -156,7 +154,7 @@ export function PasswordForm({
         </div>
       )}
 
-      <div className="mt-8 flex w-full flex-row items-center">
+      <div className="mt-6 flex w-full flex-row items-center">
         <BackButton data-testid="back-button" />
         <span className="flex-grow"></span>
         <Button

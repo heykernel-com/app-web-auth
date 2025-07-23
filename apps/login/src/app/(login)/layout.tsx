@@ -4,9 +4,7 @@ import "tw-animate-css";
 
 import AuthProvider from "@/components/auth-provider";
 import { LanguageProvider } from "@/components/language-provider";
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { Skeleton } from "@/components/skeleton";
-import { Theme } from "@/components/theme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { Lato } from "next/font/google";
@@ -39,9 +37,6 @@ export default async function RootLayout({
                   <Skeleton>
                     <div className="h-40"></div>
                   </Skeleton>
-                  <div className="flex flex-row justify-end py-4 items-center space-x-4">
-                    <Theme />
-                  </div>
                 </div>
               </div>
             }
@@ -53,10 +48,6 @@ export default async function RootLayout({
                 >
                   <div className="relative mx-auto max-w-[440px] py-8 w-full ">
                     {children}
-                    <div className="flex flex-row justify-end py-4 items-center space-x-4">
-                      <LanguageSwitcher />
-                      <Theme />
-                    </div>
                   </div>
                 </div>
               </LanguageProvider>

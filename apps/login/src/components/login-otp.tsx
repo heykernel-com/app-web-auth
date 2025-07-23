@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert, AlertType } from "./alert";
 import { BackButton } from "./back-button";
-import { TextInput } from "./input";
+import { CodeInput } from "./common/inputs/input-otp";
 import { Spinner } from "./spinner";
 import { Translated } from "./translated";
 
@@ -49,11 +49,17 @@ export function LoginOTP({
 
   const initialized = useRef(false);
 
-  const { register, handleSubmit, formState } = useForm<Inputs>({
-    mode: "onBlur",
-    defaultValues: {
-      code: code ? code : "",
-    },
+  const { handleSubmit, formState, trigger, getValues, setValue, register } =
+    useForm<Inputs>({
+      mode: "onBlur",
+      defaultValues: {
+        code: code ? code : "",
+      },
+    });
+  register("code", {
+    maxLength: { value: 6, message: "Code must be 6 characters" },
+    minLength: { value: 6, message: "Code must be 6 characters" },
+    required: { value: true, message: "Code is required" },
   });
 
   useEffect(() => {
@@ -246,12 +252,13 @@ export function LoginOTP({
           </div>
         </Alert>
       )}
-      <div className="mt-4">
-        <TextInput
-          type="text"
-          {...register("code", { required: "This field is required" })}
-          label="Code"
-          autoComplete="one-time-code"
+      <div className="mt-4 flex justify-center">
+        <CodeInput
+          value={getValues("code")}
+          onChange={(value) => {
+            setValue("code", value);
+            trigger("code");
+          }}
           data-testid="code-text-input"
         />
       </div>
